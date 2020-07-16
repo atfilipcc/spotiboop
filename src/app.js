@@ -86,15 +86,7 @@ app.get('/refresh_token', function(req, res) {
   });
 });
 
-app.get('/toplist', (req, res) => {
-  res.send(express.static(path.join(__dirname, '../client/build/index.html')))
-})
-
-app.get('/about', (req, res) => {
-  res.send(express.static(path.join(__dirname, '../client/build/index.html')))
-})
-
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   res.send(express.static(path.join(__dirname, '../client/build/index.html')))
 })
 
