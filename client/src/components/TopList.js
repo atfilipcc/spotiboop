@@ -78,7 +78,7 @@ const TopList = ({ getRefreshToken }) => {
   }
 
 	const renderDynamicButtons = period =>
-		user.access_token && (
+		user && user.access_token && (
 			<button
 				id={period}
 				className='TopList__buttons--button'
@@ -95,14 +95,15 @@ const TopList = ({ getRefreshToken }) => {
 		<div className='TopList'>
 			<h1 className='TopList__title'>Your Top Tracks</h1>
 
-			{!user.access_token && (
+			{user && !user.access_token ? (
 				<p className='message'>Please log in to use this functionality.</p>
-			)}
-			<section className='TopList__buttons'>
+			) : (
+      <section className='TopList__buttons'>
 				{renderDynamicButtons('long_term')}
 				{renderDynamicButtons('medium_term')}
 				{renderDynamicButtons('short_term')}
 			</section>
+      )}
 			{topTracks.length > 0 && (
 				<button className="TopList__createButton" onClick={(e) => {
           disableCreateButton(e);
