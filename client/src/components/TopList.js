@@ -15,7 +15,6 @@ const TopList = ({ getRefreshToken }) => {
   const getTopList = (period) => {
 		spotifyWebApi.setAccessToken(user.access_token);
 		spotifyWebApi.getMyTopTracks({limit: 30, time_range: period }).then(res => {
-			console.log(res);
 			setTopTracks(Object.values(res)[0]);
     }).catch(err => {
       if (err.status === 401) {
@@ -28,8 +27,11 @@ const TopList = ({ getRefreshToken }) => {
     const audio = e.target.nextSibling.nextSibling;
     if (playing.length !== 0) {
       const playingButton = document.getElementById(`label ${playing.id}`);
-      playingButton.click();
-      playingButton.touchstart()
+      if (document.querySelector('#mobile-detector')) {
+        playingButton.click();
+      } else {
+        playingButton.touchstart()
+      }
     }
 		audio.volume = 0.1;
 		if (audio.paused) {
