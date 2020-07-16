@@ -26,12 +26,9 @@ const TopList = ({ getRefreshToken }) => {
   const playSong = e => {
     const audio = e.target.nextSibling.nextSibling;
     if (playing.length !== 0) {
-      const playingButton = document.getElementById(`label ${playing.id}`);
-      if (document.querySelector('#mobile-detector')) {
-        playingButton.click();
-      } else {
-        playingButton.touchmove()
-      }
+      const playingEl = document.getElementById(`playpause ${playing.id}`);
+      if (audio !== playing) playing.pause();
+      playingEl.checked = true;
     }
 		audio.volume = 0.1;
 		if (audio.paused) {
@@ -133,15 +130,15 @@ const TopList = ({ getRefreshToken }) => {
 										name='check'
 									/>
 									<label
-                    onclick="void(0)"
+                    onClick={void(0)}
 										htmlFor={`playpause ${item.name}`}
 										tabIndex='1'
-                    id={`label ${item.name.replace(/ /g,'')}`}
+                    id={`label ${item.name}`}
 									></label>
 									<audio
 										loop
 										volume='0.1'
-										id={`${item.name.replace(/ /g,'')}`}
+										id={`${item.name}`}
 										key={`playback ${item.name}`}
 										src={item.preview_url}
 									/>
