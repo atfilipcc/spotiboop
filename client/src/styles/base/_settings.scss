@@ -1,0 +1,70 @@
+$off-black: #20222b;
+$text-blue: #dfe5ff;
+$dark-blue: #333745;
+$blue: #3c4251;
+$light-blue: #464b5e;
+$red-orange: #e45266;
+$spotify-green: #1daf7e;
+
+$s-size: 1.2rem;
+$m-size: 1.6rem;
+$l-size: 2.8rem;
+$xl-size: 4.8rem;
+$xxl-size: 5.8rem;
+$desktop-breakpoint: 45rem;
+
+body {
+	margin: 0;
+	font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background-color: $dark-blue;
+	font-family: Lato, Helvetica, Arial, sans-serif;
+	font-size: $m-size;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	font-size: 1.5rem;
+	margin: $s-size;
+  padding: $s-size;
+  height: $xl-size;
+  width: 100%;
+  max-width: 300px;
+	margin: 0 auto;
+	color: white;
+	background: $spotify-green;
+	border-bottom: 0.4rem solid darken($spotify-green, 10%);
+	font-weight: 800;
+}
+
+.hide {
+	display: none;
+}
+
+p {
+  color: white;
+}
+
+.message {
+  color: white;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.6rem;
+  margin: 1rem;
+}

@@ -1,0 +1,21 @@
+.App {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.App__prompt {
+  color: white;
+}
+
+.App__anchor {
+  align-self: center;
+  margin: 2rem;
+  min-width: 20rem;
+}
+
+.App__welcome {
+  color: white;
+  text-align: center;
+  margin: 3rem;
+}

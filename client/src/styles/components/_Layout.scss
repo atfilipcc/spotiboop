@@ -1,0 +1,13 @@
+.Layout {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.Layout__container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  max-width: 800px;
+  padding: 1rem;
+}
