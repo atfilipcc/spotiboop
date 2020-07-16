@@ -173,3 +173,7 @@ object-fit: cover;
     margin: 0 1.5rem 1.5 1.5rem;
   }
 }
+
+@media only screen and (max-width: 760px) {
+  #mobile-detector { display: none; }
+}

@@ -29,6 +29,7 @@ const TopList = ({ getRefreshToken }) => {
     if (playing.length !== 0) {
       const playingButton = document.getElementById(`label ${playing.id}`);
       playingButton.click();
+      playingButton.touchstart()
     }
 		audio.volume = 0.1;
 		if (audio.paused) {
@@ -120,7 +121,7 @@ const TopList = ({ getRefreshToken }) => {
 						<article key={`${item.name} ${item.id}`} className='TopList__song--wrapper'>
             {item.preview_url !== null &&
 							<div className='TopList__playpause--wrapper'>
-								<div onclick="void(0)" className={`playpause ${item.name.replace(/ /g,'')}`}>
+								<div className={`playpause ${item.name.replace(/ /g,'')}`}>
 									<input
 										onClick={e => playSong(e)}
 										type='checkbox'
@@ -157,6 +158,7 @@ const TopList = ({ getRefreshToken }) => {
 						</article>
 					))}
 			</ul>
+      <div id="mobile-detector"></div>
 		</div>
 	);
 };
