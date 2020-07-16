@@ -120,7 +120,7 @@ const TopList = ({ getRefreshToken }) => {
 						<article key={`${item.name} ${item.id}`} className='TopList__song--wrapper'>
             {item.preview_url !== null &&
 							<div className='TopList__playpause--wrapper'>
-								<div className={`playpause ${item.name.replace(/ /g,'')}`}>
+								<div onclick="void(0)" className={`playpause ${item.name.replace(/ /g,'')}`}>
 									<input
 										onClick={e => playSong(e)}
 										type='checkbox'
@@ -130,6 +130,7 @@ const TopList = ({ getRefreshToken }) => {
 										name='check'
 									/>
 									<label
+                    onclick="void(0)"
 										htmlFor={`playpause ${item.name}`}
 										tabIndex='1'
                     id={`label ${item.name.replace(/ /g,'')}`}

@@ -124,6 +124,7 @@ object-fit: cover;
   }
 
   input[type="checkbox"] {
+    cursor: pointer;
     position: absolute;
     left: -9999px;
     &:checked + label {
