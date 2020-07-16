@@ -86,8 +86,8 @@ app.get('/refresh_token', function(req, res) {
   });
 });
 
-app.get('/*', (req, res) => {
-  res.send(express.static(path.join(__dirname, '../client/build/index.html')))
-})
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 module.exports = app;
