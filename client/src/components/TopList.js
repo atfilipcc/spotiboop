@@ -30,7 +30,7 @@ const TopList = ({ getRefreshToken }) => {
       if (document.querySelector('#mobile-detector')) {
         playingButton.click();
       } else {
-        playingButton.touchstart()
+        playingButton.touchmove()
       }
     }
 		audio.volume = 0.1;
