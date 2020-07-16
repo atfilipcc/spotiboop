@@ -95,7 +95,7 @@ const TopList = ({ getRefreshToken }) => {
 			</section>
 			{topTracks.length > 0 && (
 				<button onClick={() => {
-          // addToPlayList()
+          addToPlayList()
           setMessageHelper('Playlist created!')
           }}>Create playlist</button>
 			)}
