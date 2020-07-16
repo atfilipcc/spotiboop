@@ -1,4 +1,5 @@
 $off-black: #20222b;
+$off-black-spotify: #20242b;
 $text-blue: #dfe5ff;
 $dark-blue: #333745;
 $blue: #3c4251;
@@ -51,6 +52,15 @@ button {
 	background: $spotify-green;
 	border-bottom: 0.4rem solid darken($spotify-green, 10%);
 	font-weight: 800;
+}
+
+button:hover {
+  background-color: darken($spotify-green, 5%);
+  border-bottom: 0.4rem solid darken($spotify-green, 10%);
+}
+
+button:disabled {
+  cursor: auto;
 }
 
 .hide {

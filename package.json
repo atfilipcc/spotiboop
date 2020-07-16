@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "dev": "babel-node ./src/bin/www",
-    "start": "npm run build && node ./build/bin/www",
+    "dev": "NODE_ENV=development babel-node ./src/bin/www",
+    "start": "NODE_ENV=production npm run build && node ./build/bin/www",
     "build": "npm run clean && npm run babel-build",
     "babel-build": "babel -d ./build ./src -s",
     "clean": "rm -rf ./build && mkdir build",

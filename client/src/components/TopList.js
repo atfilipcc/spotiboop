@@ -26,7 +26,10 @@ const TopList = ({ getRefreshToken }) => {
 
   const playSong = e => {
     const audio = e.target.nextSibling.nextSibling;
-    console.log(playing)
+    if (playing.length !== 0) {
+      const playingButton = document.getElementById(`label ${playing.id}`);
+      playingButton.click();
+    }
 		audio.volume = 0.1;
 		if (audio.paused) {
 			audio.play();
@@ -61,11 +64,19 @@ const TopList = ({ getRefreshToken }) => {
 		e.target.disabled = true;
   };
 
+  const disableCreateButton = (e) => {
+    const button = e.target;
+    button.disabled = true;
+    setTimeout(() => {
+      button.disabled = false;
+    }, 3000);
+  }
+
   const setMessageHelper = (msg) => {
     setMessage({message: msg})
     setTimeout(() => {
       setMessage('')
-    }, 5000);
+    }, 3000);
   }
 
 	const renderDynamicButtons = period =>
@@ -95,9 +106,10 @@ const TopList = ({ getRefreshToken }) => {
 				{renderDynamicButtons('short_term')}
 			</section>
 			{topTracks.length > 0 && (
-				<button onClick={() => {
-          addToPlayList()
-          setMessageHelper('Playlist created!')
+				<button className="TopList__createButton" onClick={(e) => {
+          disableCreateButton(e);
+          addToPlayList();
+          setMessageHelper('Playlist created!');
           }}>Create playlist</button>
 			)}
       {error && <p className="message">{error.error}</p>}
@@ -108,7 +120,7 @@ const TopList = ({ getRefreshToken }) => {
 						<article key={`${item.name} ${item.id}`} className='TopList__song--wrapper'>
             {item.preview_url !== null &&
 							<div className='TopList__playpause--wrapper'>
-								<div className={`playpause ${item.name}`}>
+								<div className={`playpause ${item.name.replace(/ /g,'')}`}>
 									<input
 										onClick={e => playSong(e)}
 										type='checkbox'
@@ -120,11 +132,12 @@ const TopList = ({ getRefreshToken }) => {
 									<label
 										htmlFor={`playpause ${item.name}`}
 										tabIndex='1'
+                    id={`label ${item.name.replace(/ /g,'')}`}
 									></label>
 									<audio
 										loop
 										volume='0.1'
-										className={`audio_${item.name}`}
+										id={`${item.name.replace(/ /g,'')}`}
 										key={`playback ${item.name}`}
 										src={item.preview_url}
 									/>

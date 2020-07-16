@@ -46,7 +46,7 @@ const AppRouter = () => {
     const token = localStorage.getItem('userToken');
     const userToken = JSON.parse(token);
     setUser(userToken);
-	}, []);
+	}, [user.name.length]);
 
 	useEffect(() => {
 		const json = JSON.stringify(user);
