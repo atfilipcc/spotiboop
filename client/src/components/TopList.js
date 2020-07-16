@@ -8,7 +8,7 @@ const spotifyWebApi = new Spotify();
 const TopList = ({ getRefreshToken }) => {
 	const { user, setUser } = useContext(ContextUser);
 	const [topTracks, setTopTracks] = useState([]);
-	const [isPlaying, setPlaying] = useState([]);
+	const [playing, setPlaying] = useState([]);
   const [error, setError] = useState({});
   const [message, setMessage] = useState('');
 
@@ -25,7 +25,8 @@ const TopList = ({ getRefreshToken }) => {
   })}
 
   const playSong = e => {
-		const audio = e.target.nextSibling.nextSibling;
+    const audio = e.target.nextSibling.nextSibling;
+    console.log(playing)
 		audio.volume = 0.1;
 		if (audio.paused) {
 			audio.play();

@@ -3,7 +3,7 @@ import React from 'react'
  const About = () => {
   return (
     <p className="About__text">
-      Made by Filip Cordas with React, Express, and the Spotify API.
+      Made by Filip Cordas (https://github.com/atfilipcc) with React, Express, and the Spotify API.
     </p>
   )
 }
