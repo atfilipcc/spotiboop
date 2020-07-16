@@ -53,7 +53,7 @@ const AppRouter = () => {
     localStorage.setItem('userToken', json);
   }, [user]);
 
-	const logOutUser = (props) => {
+	const logOutUser = () => {
 		localStorage.removeItem('userToken');
     setUser(loggedOutState);
   };
@@ -70,16 +70,13 @@ const AppRouter = () => {
 					<>
 						<Switch>
 							<Route path='/' exact>
-								<App logOutUser={logOutUser} />
+								<App />
 							</Route>
 							<Route path='/callback' exact component={App} />
 							<Route path='/about' component={About} />
 							<Route path='/current' component={Current} />
 							<Route path='/toplist' >
-                <TopList getRefreshToken={getRefreshToken} logOutUser={logOutUser} />
-              </Route>
-              <Route path='/sorter' >
-                <Sorter getRefreshToken={getRefreshToken} logOutUser={logOutUser} />
+                <TopList getRefreshToken={getRefreshToken} />
               </Route>
 						</Switch>
 					</>

@@ -26,9 +26,7 @@ const TopList = ({ getRefreshToken }) => {
   const playSong = e => {
     const audio = e.target.nextSibling.nextSibling;
     if (playing.length !== 0) {
-      const playingEl = document.getElementById(`playpause ${playing.id}`);
-      if (audio !== playing) playing.pause();
-      playingEl.checked = true;
+      // Implement pausing
     }
 		audio.volume = 0.1;
 		if (audio.paused) {
@@ -157,7 +155,6 @@ const TopList = ({ getRefreshToken }) => {
 						</article>
 					))}
 			</ul>
-      <div id="mobile-detector"></div>
 		</div>
 	);
 };

@@ -2,9 +2,20 @@ import React, { useContext} from 'react'
 import { ContextUser } from '../components/UserContext';
 import { useHistory } from 'react-router-dom';
 
-const App = ({ logOutUser }) => {
-  const { user } = useContext(ContextUser)
+const App = () => {
+  const { user, setUser } = useContext(ContextUser)
   const history = useHistory()
+
+  const logOutUser = () => {
+		localStorage.removeItem('userToken');
+    setUser({
+      access_token: '',
+      refresh_token: '',
+      name: '',
+      id: '',
+      expiry: ''
+    });
+  };
 
   const renderPage = () => {
     if (user && user.access_token) {
