@@ -5,6 +5,7 @@ Available on https://spotiboop.herokuapp.com.
 
 Todo:
 - Refactor for readability
+- Add Eslint
 - Implement indicator for loading
 - Fix issues with sound preview (sound persisting on changing lists, many songs playing at once)
 - Bug with refresh tokens and css compilation on mobile
