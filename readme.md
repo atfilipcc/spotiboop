@@ -7,6 +7,7 @@ Todo:
 - Refactor for readability
 - Implement indicator for loading
 - Fix issues with sound preview (sound persisting on changing lists, many songs playing at once)
+- Bug with refresh tokens and css compilation on mobile
 - Add better solution for refreshing tokens
 - Add tests
 - Store and use tokens more securely

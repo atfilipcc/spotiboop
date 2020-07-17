@@ -23,6 +23,14 @@ const TopList = ({ getRefreshToken }) => {
     }
   })}
 
+  const handlePause = () => {
+    // Add better solution
+    const audio = document.getElementsByTagName('audio')
+    const  inputs = document.getElementsByTagName('input')
+    for (let i=0; i < inputs.length;i++) inputs[i].checked = true;
+    for (let i=0; i < audio.length;i++) audio[i].pause();
+  }
+
   const playSong = e => {
     const audio = e.target.nextSibling.nextSibling;
     if (playing.length !== 0) {
@@ -83,6 +91,7 @@ const TopList = ({ getRefreshToken }) => {
 				id={period}
 				className='TopList__buttons--button'
 				onClick={e => {
+          handlePause();
 					getTopList(period);
 					disableButton(e);
 				}}
