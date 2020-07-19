@@ -1,16 +1,16 @@
 Spotify API
 
 Get your most listened to tracks from the Spotify API.
+Built during a 24-hour hackday @ the Salt bootcamp.
 Available on https://spotiboop.herokuapp.com. 
 
 Todo:
-- Refactor for readability
-- Add Eslint
+- Refactor, code split and lint
 - Implement indicator for loading
-- Fix issues with sound preview (sound persisting on changing lists, many songs playing at once)
+- Fix issues with sound preview (many songs playing at once)
 - Bug with refresh tokens and css compilation on mobile
 - Add better solution for refreshing tokens
 - Add tests
 - Store and use tokens more securely
-- Attempt Next.js implementation
-- Add more features from the Spotify API
+- Next.js implementation
+- Add more features from the Spotify API.

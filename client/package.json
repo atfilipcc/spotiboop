@@ -41,7 +41,8 @@
   },
   "devDependencies": {
     "eslint": "^6.6.0",
-    "eslint-plugin-react": "^7.20.3"
+    "eslint-plugin-react": "^7.20.3",
+    "gremlins.js": "^2.1.1"
   },
   "proxy": "http://localhost:8888"
 }
