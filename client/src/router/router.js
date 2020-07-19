@@ -5,7 +5,6 @@ import Layout from '../components/Layout';
 import About from '../components/About';
 import Current from '../components/Current';
 import TopList from '../components/TopList';
-import Sorter from '../components/Sorter';
 import { ContextUser } from '../components/UserContext';
 import qs from 'query-string';
 import axios from 'axios';
@@ -52,11 +51,6 @@ const AppRouter = () => {
 		const json = JSON.stringify(user);
     localStorage.setItem('userToken', json);
   }, [user]);
-
-	const logOutUser = () => {
-		localStorage.removeItem('userToken');
-    setUser(loggedOutState);
-  };
 
   const getRefreshToken = () => {
     axios.get(`/refresh_token?refresh_token=${user.refresh_token}`)
