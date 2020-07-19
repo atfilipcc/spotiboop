@@ -2,7 +2,6 @@
 import React, { useState, useContext } from 'react';
 import Spotify from 'spotify-web-api-js';
 import { ContextUser } from '../components/UserContext';
-const gremlins = require('gremlins.js');
 
 const spotifyWebApi = new Spotify();
 
