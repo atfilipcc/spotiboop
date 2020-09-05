@@ -1,15 +1,3 @@
-.TopList {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.TopList__buttons {
-  display: flex;
-  margin: 0;
-  justify-content: center;
-}
-
 .TopList__buttons--button {
   display: flex;
   font-size: 1.1rem;
@@ -18,6 +6,29 @@
   margin: 0.5rem 0.5rem 1.5rem 0.5rem;
   min-width: 9.5rem;
   align-items: center;
+  justify-content: center;
+}
+
+.TopList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.TopList__title {
+  font-size: $l-size;
+	justify-content: center;
+  display: flex;
+  color: $text-blue;
+  min-width: 150px;
+	width: 100%;
+	font-family: Roboto;
+	font-weight: 700;
+}
+
+.TopList__buttons {
+  display: flex;
+  margin: 0;
   justify-content: center;
 }
 
@@ -46,25 +57,6 @@
   margin-right: 0rem;
 }
 
-.TopList__song--wrapper {
-	display: flex;
-	width: 60rem;
-  max-width: 100%;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
-	color: $text-blue;
-	font-size: $m-size;
-	font-weight: bold;
-	list-style: none;
-	background-color: $blue;
-	list-style: none;
-	padding: $m-size;
-	margin: $m-size $s-size $s-size $s-size;
-  word-break: break-word;
-  border-bottom: 2rem solid darken($blue, 7%);
-}
-
 .TopList__list {
   display: flex;
   flex-wrap: wrap;
@@ -76,83 +68,13 @@
   margin-top: 3rem;
 }
 
-.TopList__title {
-  font-size: $l-size;
-	justify-content: center;
-  display: flex;
-  color: $text-blue;
-  min-width: 150px;
-	width: 100%;
-	font-family: Roboto;
-	font-weight: 700;
-}
-
-.TopList__image {
-display: block;
-height: 64px;
-width: 100%;
-object-fit: cover;
-}
-
-.TopList__content {
-  display: flex;
-  width: 100%;
-  max-width: 568px;
-  flex: 1 1 100%;
-  align-items: center;
-}
-
-.TopList__playpause--wrapper {
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  margin: 0 1rem 0 1rem;
-}
-
-.playpause {
-  label {
-    display: flex;
-    box-sizing: border-box;
-    width: 0;
-    height: 36px;
-
-    border-color: transparent transparent transparent $spotify-green;
-    transition: 100ms all ease;
-    cursor: pointer;
-    border-style: double;
-    border-width: 0px 0 0px 30px;
-  }
-
-  input[type="checkbox"] {
-    cursor: pointer;
-    position: absolute;
-    left: -9999px;
-    &:checked + label {
-      border-style: solid;
-      border-width: 18.5px 0 18.5px 30px;
-    }
-    &:focus + label {
-      box-shadow: 0 0 5px lightblue;
-    }
-  }
-}
-
 @media (min-width: 450px) {
-  .TopList__song--wrapper {
-    flex-direction: row;
-  }
 
   .TopList__song {
     text-align: left;
     margin-right: 5rem;
   }
 
-  .TopList__image {
-    width: 128px;
-    height: 128px;
-    min-width: 128px;
-    min-height: 128px;
-  }
   .TopList__buttons {
     display: flex;
     justify-content: center;

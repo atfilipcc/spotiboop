@@ -1,7 +1,8 @@
 {
-  "name": "oauth-bridge-template",
+  "name": "spotiboop",
   "version": "1.0.0",
   "main": "app.js",
+  "license": "ISC",
   "scripts": {
     "dev": "NODE_ENV=development babel-node ./src/bin/www",
     "start": "NODE_ENV=production npm run build && node ./build/bin/www",

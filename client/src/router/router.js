@@ -1,11 +1,12 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import App from '../components/App';
+import App from '../pages/App';
 import Layout from '../components/Layout';
-import About from '../components/About';
-import Current from '../components/Current';
-import TopList from '../components/TopList';
+import About from '../pages/About.js';
+import Creator from '../pages/Creator';
+import TopList from '../pages/TopList';
 import { ContextUser } from '../components/UserContext';
+import { useLocalStorage } from '../hooks/useLocalStorage.js';
 import qs from 'query-string';
 import axios from 'axios';
 const now = new Date();
@@ -18,7 +19,7 @@ const AppRouter = () => {
       id: '',
       expiry: ''
     }
-	const [user, setUser] = useState(loggedOutState);
+  const [user, setUser] = useState(loggedOutState);
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
 
 	useEffect(() => {
@@ -29,7 +30,6 @@ const AppRouter = () => {
 					headers: { Authorization: 'Bearer ' + tokens.access_token },
 				})
 				.then(res => {
-          console.log(res)
 					setUser({
 						access_token: tokens.access_token,
 						refresh_token: tokens.refresh_token,
@@ -42,14 +42,12 @@ const AppRouter = () => {
 	}, []);
 
 	useEffect(() => {
-    const token = localStorage.getItem('userToken');
-    const userToken = JSON.parse(token);
+    const userToken = JSON.parse(localStorage.getItem('userToken'));
     setUser(userToken);
 	}, []);
 
 	useEffect(() => {
-		const json = JSON.stringify(user);
-    localStorage.setItem('userToken', json);
+    localStorage.setItem('userToken', JSON.stringify(user));
   }, [user]);
 
   const getRefreshToken = () => {
@@ -68,7 +66,7 @@ const AppRouter = () => {
 							</Route>
 							<Route path='/callback' exact component={App} />
 							<Route path='/about' component={About} />
-							<Route path='/current' component={Current} />
+              <Route path='/creator' component={Creator} />
 							<Route path='/toplist' >
                 <TopList getRefreshToken={getRefreshToken} />
               </Route>

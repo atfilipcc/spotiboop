@@ -1,4 +1,4 @@
-import {createContext} from 'react';
+import { createContext } from 'react';
 
 export const ContextUser = createContext({
   access_token: '',
@@ -7,3 +7,5 @@ export const ContextUser = createContext({
   id: '',
   expiry: ''
 });
+
+export const ContextError = createContext(null);
