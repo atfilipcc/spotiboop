@@ -18,10 +18,6 @@ const Header = () => (
         <NavLink className="Header__item" to="/toplist">Your Top Tracks
         </NavLink>
       </li>
-      <li>
-        <NavLink className="Header__item" to="/creator">Generate Playlist
-        </NavLink>
-      </li>
     </ul>
   </nav>
 )

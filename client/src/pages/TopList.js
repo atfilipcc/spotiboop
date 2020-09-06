@@ -31,7 +31,7 @@ const TopList = ({ getRefreshToken }) => {
     songName,
     artistName,
     songId,
-    artistId,
+    artistId
   ) => {
     spotifyWebApi.setAccessToken(user.access_token);
     const artistGenre = await spotifyWebApi.getArtist(artistId);
@@ -60,7 +60,7 @@ const TopList = ({ getRefreshToken }) => {
     });
   };
 
-const createSpotifyPlaylist = (tracksToMap, {name: name, description: description}) => {
+  const createSpotifyPlaylist = (tracksToMap, { name, description }) => {
     const mappedUris = tracksToMap.map((track) => track.uri);
     spotifyWebApi.createPlaylist(
       user.id,
@@ -133,11 +133,10 @@ const createSpotifyPlaylist = (tracksToMap, {name: name, description: descriptio
           className="TopList__createButton"
           onClick={(e) => {
             disableCreateButton(e);
-            createSpotifyPlaylist(
-              topTracks,
-              {name: "Your Top Tracks",
-              description: "From Spotiboop."}
-            );
+            createSpotifyPlaylist(topTracks, {
+              name: "Your Top Tracks",
+              description: "From Spotiboop.",
+            });
             setMessageHelper("Playlist created!");
           }}
         >

@@ -1,4 +1,4 @@
-import React, {useState, useContext, useRef, useEffect} from 'react';
+import React, {useState, useContext, useRef} from 'react';
 import Spotify from 'spotify-web-api-js';
 import { ContextUser } from '../components/UserContext';
 import ListView from '../components/ListView.js'
@@ -20,7 +20,7 @@ const Creator = () => {
     }
   };
 
-  {return user && user.access_token ?
+  return user && user.access_token ?
   (
     <div>
     <form>
@@ -29,7 +29,7 @@ const Creator = () => {
     </form>
     {searchResult && <ListView items={searchResult} />}
     </div>
-  ) : <div>Please log in to use this feature.</div>}
+  ) : <div>Please log in to use this feature.</div>
 }
 
 export default Creator;

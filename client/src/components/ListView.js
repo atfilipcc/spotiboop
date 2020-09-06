@@ -1,9 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useContext } from "react";
-import { ContextUser } from "../components/UserContext";
+import React, { useState } from "react";
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'
 
-const ListView = ({ items, handleGenerateRecommendation, setMessageHelper }) => {
-  const { user, setUser } = useContext(ContextUser);
+const ListView = ({
+  items,
+  handleGenerateRecommendation,
+  setMessageHelper,
+}) => {
   const [playing, setPlaying] = useState([]);
 
   const playSong = (e) => {
@@ -33,55 +37,73 @@ const ListView = ({ items, handleGenerateRecommendation, setMessageHelper }) => 
           const imageUrl = item.album.images[1].url;
           return (
             <>
-            <article
-              key={`${songName} ${artistName}`}
-              className="TopList__song--wrapper"
-            >
-              {item.preview_url !== null && (
-                <div className="TopList__playpause--wrapper">
-                  <div className={`playpause ${songName.replace(/ /g, "")}`}>
-                    <input
-                      onClick={(e) => playSong(e)}
-                      type="checkbox"
-                      defaultChecked={true}
-                      value="None"
-                      id={`playpause ${songId}`}
-                      name="check"
-                    />
-                    <label
-                      title="Preview track"
-                      onClick={void 0}
-                      htmlFor={`playpause ${songId}`}
-                      tabIndex="1"
-                      id={`label ${songId}`}
-                    ></label>
-                    <audio
-                      loop
-                      volume="0.1"
-                      id={`${songId}`}
-                      key={`playback ${songId}`}
-                      src={songPreview}
-                    />
+              <article
+                key={`${songName} ${artistName}`}
+                className="ListView__song--wrapper"
+              >
+                {item.preview_url !== null && (
+                  <div className="ListView__playpause--wrapper">
+                  <Tippy content="Preview track">
+                    <div className={`playpause ${songName.replace(/ /g, "")}`}>
+                      <input
+                        onClick={(e) => playSong(e)}
+                        type="checkbox"
+                        defaultChecked={true}
+                        value="None"
+                        id={`playpause ${songId}`}
+                        name="check"
+                      />
+                      <label
+                        title="Preview track"
+                        onClick={void 0}
+                        htmlFor={`playpause ${songId}`}
+                        tabIndex="1"
+                        id={`label ${songId}`}
+                      ></label>
+                      <audio
+                        loop
+                        volume="0.1"
+                        id={`${songId}`}
+                        key={`playback ${songId}`}
+                        src={songPreview}
+                      />
+                    </div>
+                    </Tippy>
+
+                    <Tippy content="Generate playlist based on this song">
+                    <button
+                      className="ListView__playlistButton"
+                      onClick={() => {
+                        handleGenerateRecommendation(
+                          songName,
+                          artistName,
+                          songId,
+                          artistId
+                        );
+                        setMessageHelper("Playlist created!");
+                      }}
+                    >
+                      <img
+                        alt="Create playlist"
+                        className="ListView__playlistImage"
+                        src="/images/playlist.svg"
+                      ></img>
+                    </button>
+                    </Tippy>
                   </div>
-                  <button className="smallButton" onClick={() => {
-            handleGenerateRecommendation(songName, artistName, songId, artistId)
-            setMessageHelper("Playlist created!");
-            }}>+</button>
+                )}
+                <div className="ListView__content">
+                  <li
+                    key={`${songName - artistName}`}
+                    className="ListView__song"
+                  >{`${index + 1} - ${artistName} - ${songName}`}</li>
                 </div>
-
-
-              )}
-              <div className="TopList__content">
-                <li key={`${songName-artistName}`} className="TopList__song">{`${
-                  index + 1
-                } - ${artistName} - ${songName}`}</li>
-              </div>
-              <img
-                className="TopList__image"
-                alt={songName}
-                src={imageUrl}
-              ></img>
-            </article>
+                <img
+                  className="ListView__image"
+                  alt={songName}
+                  src={imageUrl}
+                ></img>
+              </article>
             </>
           );
         })}
