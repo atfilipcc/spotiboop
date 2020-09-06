@@ -1,4 +1,4 @@
-.ListView__song--wrapper {
+.ListView__songWrapper {
 	display: flex;
   max-width: 100%;
   flex-direction: column-reverse;
@@ -66,18 +66,18 @@
     align-items: center;
   }
 
-  .ListView__columnWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    text-align: baseline;
+  .ListView__buttonWrapper {
+    display: flex !important;
+    flex-direction: row;
   }
 
   .ListView__playlistButton {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 4.5rem;
     height: 36px;
     font-size: 2rem;
-    margin-left: 2rem;
+    margin-left: 1rem;
     justify-content: center;
     align-content: baseline;
   }
@@ -114,11 +114,11 @@
       margin-right: 5rem;
     }
 
-    .ListView__song--wrapper {
+    .ListView__songWrapper {
       flex-direction: row;
     }
 
-    .ListView__song--wrapper {
+    .ListView__songWrapper {
       flex-direction: row;
     }
 

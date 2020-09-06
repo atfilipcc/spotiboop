@@ -1,12 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css'
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 
-const ListView = ({
-  items,
-  handleGenerateRecommendation,
-}) => {
+const ListView = ({ items, handleGenerateRecommendation }) => {
   const [playing, setPlaying] = useState([]);
 
   const playSong = (e) => {
@@ -38,39 +35,46 @@ const ListView = ({
             <>
               <article
                 key={`${songName} ${artistName}`}
-                className="ListView__song--wrapper"
-              >
-                {item.preview_url !== null && (
+                className="ListView__songWrapper"
+              ><div className="ListView__buttonWrapper">
+                {item.preview_url && (
                   <div className="ListView__playpause--wrapper">
-                  <Tippy className="tippy" content="Preview track">
-                    <div className={`playpause ${songName.replace(/ /g, "")}`}>
-                      <input
-                        onClick={(e) => playSong(e)}
-                        type="checkbox"
-                        defaultChecked={true}
-                        value="None"
-                        id={`playpause ${songId}`}
-                        name="check"
-                      />
-                      <label
-                        title="Preview track"
-                        onClick={void 0}
-                        htmlFor={`playpause ${songId}`}
-                        tabIndex="1"
-                        id={`label ${songId}`}
-                      ></label>
-                      <audio
-                        loop
-                        volume="0.1"
-                        id={`${songId}`}
-                        key={`playback ${songId}`}
-                        src={songPreview}
-                      />
-                    </div>
+                    <Tippy className="tippy" content="Preview track">
+                      <div
+                        className={`playpause ${songName.replace(/ /g, "")}`}
+                      >
+                        <input
+                          onClick={(e) => playSong(e)}
+                          type="checkbox"
+                          defaultChecked={true}
+                          value="None"
+                          id={`playpause ${songId}`}
+                          name="check"
+                        />
+                        <label
+                          title="Preview track"
+                          onClick={void 0}
+                          htmlFor={`playpause ${songId}`}
+                          tabIndex="1"
+                          id={`label ${songId}`}
+                        ></label>
+                        <audio
+                          loop
+                          volume="0.1"
+                          id={`${songId}`}
+                          key={`playback ${songId}`}
+                          src={songPreview}
+                        />
+                      </div>
                     </Tippy>
-
-                    <Tippy content="Playlist created!" trigger="click" placement="bottom">
-                    <Tippy content="Generate playlist based on this song">
+                    </div>
+                )}
+                <Tippy
+                  content="Playlist created!"
+                  trigger="click"
+                  placement="bottom"
+                >
+                  <Tippy content="Generate playlist based on this song">
                     <button
                       className="ListView__playlistButton"
                       onClick={() => {
@@ -88,10 +92,9 @@ const ListView = ({
                         src="/images/playlist.svg"
                       ></img>
                     </button>
-                    </Tippy>
-                    </Tippy>
-                  </div>
-                )}
+                  </Tippy>
+                </Tippy>
+                </div>
                 <div className="ListView__content">
                   <li
                     key={`${songName - artistName}`}
