@@ -150,7 +150,6 @@ const TopList = ({ getRefreshToken }) => {
           <ListView
             items={topTracks}
             handleGenerateRecommendation={handleGenerateRecommendation}
-            setMessageHelper={setMessageHelper}
           />
         )}
       </ul>

@@ -6,7 +6,6 @@ import 'tippy.js/dist/tippy.css'
 const ListView = ({
   items,
   handleGenerateRecommendation,
-  setMessageHelper,
 }) => {
   const [playing, setPlaying] = useState([]);
 
@@ -43,7 +42,7 @@ const ListView = ({
               >
                 {item.preview_url !== null && (
                   <div className="ListView__playpause--wrapper">
-                  <Tippy content="Preview track">
+                  <Tippy className="tippy" content="Preview track">
                     <div className={`playpause ${songName.replace(/ /g, "")}`}>
                       <input
                         onClick={(e) => playSong(e)}
@@ -70,6 +69,7 @@ const ListView = ({
                     </div>
                     </Tippy>
 
+                    <Tippy content="Playlist created!" trigger="click" placement="bottom">
                     <Tippy content="Generate playlist based on this song">
                     <button
                       className="ListView__playlistButton"
@@ -80,7 +80,6 @@ const ListView = ({
                           songId,
                           artistId
                         );
-                        setMessageHelper("Playlist created!");
                       }}
                     >
                       <img
@@ -89,6 +88,7 @@ const ListView = ({
                         src="/images/playlist.svg"
                       ></img>
                     </button>
+                    </Tippy>
                     </Tippy>
                   </div>
                 )}

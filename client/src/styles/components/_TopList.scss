@@ -44,19 +44,6 @@
   color: rgb(189, 189, 189)
 }
 
-.TopList__song {
-  font-size: $m-size;
-	padding: $m-size;
-	text-align: left;
-	color: white;
-	width: 100%;
-  flex-grow: 1;
-  text-align: center;
-  word-break: break-word;
-  line-height: 2rem;
-  margin-right: 0rem;
-}
-
 .TopList__list {
   display: flex;
   flex-wrap: wrap;
@@ -69,11 +56,6 @@
 }
 
 @media (min-width: 450px) {
-
-  .TopList__song {
-    text-align: left;
-    margin-right: 5rem;
-  }
 
   .TopList__buttons {
     display: flex;
