@@ -48,11 +48,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-	margin-left: 0;
+	margin: 3rem 2rem 2rem 0rem;
 	background-color: $dark-blue;
 	font-weight: bold;
   font-size: 1.8rem;
   margin-top: 3rem;
+  width: 100%;
 }
 
 @media (min-width: 450px) {

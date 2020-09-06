@@ -1,6 +1,5 @@
 .ListView__song--wrapper {
 	display: flex;
-	width: 60rem;
   max-width: 100%;
   flex-direction: column-reverse;
   justify-content: center;
@@ -98,6 +97,8 @@
 
   .ListView__playlistImage {
     width: 10rem;
+    min-width: 2rem;
+    min-height: 2rem;
     height: 2rem;
     fill: #FFF;
     padding-bottom: 5px;
